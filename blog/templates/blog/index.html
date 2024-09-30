@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Home Blog
+{% endblock %}
+
+{% block content %}
+    <div class="section-blog">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 col-sm-12">
+                    <div class="articles">
+
+                        {% for blog in blogs %}
+                            <div class="article">
+                                <a href="{{ blog.get_absolute_url }}">
+                                    <img src="https://d2devwt40at1e2.cloudfront.net/api/file/tdt3s1OHRO6wfQOpmAHw"
+                                         width="100%">
+                                </a>
+                                <div class="inner">
+                                    <h3><a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a></h3>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                    <div class="pagination-links">
+                        <span class="pagination-link">&larr; Newer posts</span>
+                        <span class="pagination-link"><a href="#">Older posts &rarr;</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
